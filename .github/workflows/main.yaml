@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     name: Building the project using yarn
-    runs_on: ubuntu-18.04
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         node_version: [10, 12]
