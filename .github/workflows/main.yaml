@@ -1,0 +1,23 @@
+name: Sample Github Actions Workflow
+
+on: [push]
+
+jobs:
+  build:
+    name: Building the project using yarn
+    runs_on: ubuntu-18.04
+    strategy:
+      matrix:
+        node_version: [10, 12]
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Using node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          version: ${{ matrix.node_version }}
+
+      - name: yarn build
+        run: |
+          yarn install
+          yarn build
